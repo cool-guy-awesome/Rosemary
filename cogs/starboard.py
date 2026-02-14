@@ -5,7 +5,7 @@ import os
 import re
 
 STAR_FILE = "starboard_data.json"
-STAR_THRESHOLD = 1  # Change how many ⭐ are required
+STAR_THRESHOLD = 5  # Change how many ⭐ are required
 
 class Starboard(commands.Cog):
     def __init__(self, bot):
