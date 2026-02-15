@@ -1,7 +1,6 @@
 import os
 import discord
 from discord.ext import commands
-import asyncio
 from dotenv import load_dotenv
 import manage
 
@@ -23,8 +22,8 @@ bot = commands.Bot(
 async def on_ready():
     print(f'We have logged in as {bot.user}')
 
-
 cogs = bot.create_group("cogs", "Manage cogs")
+
 @cogs.command(description="Load a cog")
 @discord.default_permissions(administrator=True)
 async def load(ctx, cog_name: discord.Option(str)):
@@ -33,6 +32,7 @@ async def load(ctx, cog_name: discord.Option(str)):
         await ctx.respond(f"Successfully loaded cog `{cog_name}`.")
     except:
         await ctx.respond(f"Unable to load cog `{cog_name}`.")
+
 @cogs.command(description="Unload a cog")
 @discord.default_permissions(administrator=True)
 async def unload(ctx, cog_name: discord.Option(str)):
@@ -41,6 +41,7 @@ async def unload(ctx, cog_name: discord.Option(str)):
         await ctx.respond(f"Successfully unloaded cog `{cog_name}`.")
     except:
         await ctx.respond(f"Unable to unload cog `{cog_name}`.")
+
 @cogs.command(description="Reload a cog")
 @discord.default_permissions(administrator=True)
 async def reload(ctx, cog_name: discord.Option(str)):
